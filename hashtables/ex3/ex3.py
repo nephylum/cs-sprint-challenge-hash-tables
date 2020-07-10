@@ -1,8 +1,22 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    hash ={}
+    # create a list to start checking for duplicate values
+    for x in arrays[0]:
+        hash[x] = 0
+    for x in range(1, len(arrays)):
+        for y in arrays[x]:
+            if y in hash:
+                hash[y] += 1
+        todrop = []
+        for item in hash:
+            if hash[item] == 0:
+                todrop.append(item)
+                #hash.pop(item, None)
+        for x in todrop:
+            hash.pop(x, None)
+    result = []
+    for x in hash:
+        result.append(x)
 
     return result
 
